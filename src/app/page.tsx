@@ -88,6 +88,7 @@ export default function Home() {
         />
         <Input
           placeholder="password"
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -102,6 +103,7 @@ export default function Home() {
         />
         <Input
           placeholder="password"
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
