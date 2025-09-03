@@ -7,18 +7,5 @@ import { useRouter } from "next/navigation";
 export function HomeView() {
   const { data: session } = authClient.useSession();
   const router = useRouter();
-  return (
-    <div className="flex flex-col gap-y-6">
-      <p>Logged in as {session?.user.name}</p>
-      <Button
-        onClick={() =>
-          authClient.signOut({
-            fetchOptions: { onSuccess: () => router.push("/sign-in") },
-          })
-        }
-      >
-        Logout
-      </Button>
-    </div>
-  );
+  return <div className="flex flex-col gap-y-6">Home</div>;
 }
