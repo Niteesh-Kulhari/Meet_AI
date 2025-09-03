@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { DashboardCommand } from "../../dashboard-command";
 import { useEffect, useState } from "react";
-import { openPeeps } from "@dicebear/collection";
 
 export const DashboardNavbar = () => {
   const { state, toggleSidebar, isMobile } = useSidebar();
@@ -25,6 +24,7 @@ export const DashboardNavbar = () => {
     };
 
     document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
   }, []);
 
   return (
@@ -42,7 +42,7 @@ export const DashboardNavbar = () => {
           className="h-9 w-[240px] justify-start font-normal text-muted-foreground hover:text-muted-foreground"
           variant="outline"
           size="sm"
-          onClick={() => setCommandOpen((open) => !openPeeps)}
+          onClick={() => setCommandOpen((open) => !open)}
         >
           <SearchIcon />
           Search
