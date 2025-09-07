@@ -10,11 +10,11 @@ import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 const Page = async () => {
-  const queryClinet = getQueryClient();
-  void queryClinet.prefetchQuery(trpc.agents.getMany.queryOptions());
+  const queryClient = getQueryClient();
+  void queryClient.prefetchQuery(trpc.agents.getMany.queryOptions());
 
   return (
-    <HydrationBoundary state={dehydrate(queryClinet)}>
+    <HydrationBoundary state={dehydrate(queryClient)}>
       <Suspense fallback={<AgentsLoadingView />}>
         <ErrorBoundary fallback={<AgentsErrorView />}>
           <AgentsView />
